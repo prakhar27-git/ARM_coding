@@ -1,0 +1,14 @@
+Main      BL LED_Init
+Loop      MOV R0, #1
+          BL LED_On
+          LDR R0, =250000
+          BL DELAY
+          MOV R0, #0
+          BL LED_Off
+          LDR R0, =250000
+          BL Delay
+          B Loop
+
+Delay     SUBS R0, R0, #1
+          BNE Delay
+          BX LR
